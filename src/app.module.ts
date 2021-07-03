@@ -5,9 +5,10 @@ import { AppService } from './app.service';
 import { MONGODB_CONNECTION_URL } from './constants';
 import { UsersModule } from './users/users.module';
 import { MessagesModule } from './messages/messages.module';
+import { TestModule } from './test/test.module';
 
 @Module({
-  imports: [UsersModule, MongooseModule.forRoot(MONGODB_CONNECTION_URL), MessagesModule],
+  imports: [UsersModule, MongooseModule.forRoot(MONGODB_CONNECTION_URL), MessagesModule, TestModule],
   controllers: [AppController],
   providers: [AppService],
 })

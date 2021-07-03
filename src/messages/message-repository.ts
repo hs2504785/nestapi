@@ -13,6 +13,18 @@ export class MessageRepositoryService {
     return this.messageModel.find();
   }
 
+  getMessagesByFolder(folder: string) {
+    console.log('searching for lessons ', folder);
+
+    if (folder) {
+      return this.messageModel.find({
+        folder,
+      });
+    }
+
+    return this.findAll();
+  }
+
   async updateUser(
     userId: string,
     changes: Partial<MessageInterface>,

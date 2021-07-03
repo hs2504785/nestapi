@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { MessageRepositoryService } from './message-repository';
 import { MessageInterface } from './message.interface';
@@ -14,9 +15,16 @@ import { MessageInterface } from './message.interface';
 export class MessagesController {
   constructor(private messageDB: MessageRepositoryService) {}
 
+  // @Get()
+  // async getMessages(): Promise<MessageInterface[]> {
+  //   return this.messageDB.findAll();
+  // }
+
   @Get()
-  async getUsers(): Promise<MessageInterface[]> {
-    return this.messageDB.findAll();
+  async getMessageByFolder(
+    @Query('folder') folder: string,
+  ): Promise<MessageInterface[]> {
+    return this.messageDB.getMessagesByFolder(folder);
   }
 
   @Post()
