@@ -25,6 +25,10 @@ export class MessageRepositoryService {
     return this.findAll();
   }
 
+  async getMessage(messageId: string): Promise<MessageInterface> {
+    return this.messageModel.findOne({ _id: messageId });
+  }
+
   async updateUser(
     userId: string,
     changes: Partial<MessageInterface>,

@@ -20,6 +20,11 @@ export class MessagesController {
   //   return this.messageDB.findAll();
   // }
 
+  @Get(':_id')
+  async getMessage(@Param('_id') id: string): Promise<MessageInterface> {
+    return this.messageDB.getMessage(id);
+  }
+
   @Get()
   async getMessageByFolder(
     @Query('folder') folder: string,
