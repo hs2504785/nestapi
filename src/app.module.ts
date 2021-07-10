@@ -6,6 +6,7 @@ import { MONGODB_CONNECTION_URL } from './constants';
 import { UsersModule } from './users/users.module';
 import { MessagesModule } from './messages/messages.module';
 import { ProductModule } from './product/product.module';
+import { PusherModule } from './pusher/pusher.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ProductModule } from './product/product.module';
     MongooseModule.forRoot(MONGODB_CONNECTION_URL),
     MessagesModule,
     ProductModule,
+    PusherModule,
   ],
   controllers: [AppController],
   providers: [AppService],
