@@ -5,12 +5,14 @@ import { AppService } from './app.service';
 import { MONGODB_CONNECTION_URL } from './constants';
 import { UsersModule } from './users/users.module';
 import { MessagesModule } from './messages/messages.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
     UsersModule,
     MongooseModule.forRoot(MONGODB_CONNECTION_URL),
     MessagesModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
